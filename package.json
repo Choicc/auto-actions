@@ -1,0 +1,11 @@
+{
+  "name": "3l-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "3l.js",
+  "dependencies": {
+    "md5-node": "^1.0.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}

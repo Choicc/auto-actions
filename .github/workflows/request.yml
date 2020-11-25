@@ -1,0 +1,28 @@
+name: '自用调api'
+ 
+on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+  schedule:
+    - cron: '10 16,4 1,10,20 * *'
+  watch:
+    types: started
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: node request.js
+      env:
+       REQUEST_URLS: ${{secrets.REQUEST_URLS}} 
+       S_KEY: ${{secrets.KEY}}
